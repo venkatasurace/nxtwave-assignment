@@ -3,14 +3,20 @@ import requests
 
 from bs4 import BeautifulSoup
 
+try:
+    source_url = "http://quotes.toscrape.com/"
+    source = requests.get(source_url)
+    source.raise_for_status()
 
+    soup = BeautifulSoup(source.text,'html.parser')
 
-url = " http://quotes.toscrape.com/"
+    source_quotes = soup.find_all("div",class_ = "quote")
 
-request = requests.get(url)
+    source_title = source_quotes.find_all("span",class_ = "text")
 
-soup = BeautifulSoup(request.content,"html.parser")
+    for items in source_title:
+        print(items)
+        break
 
-quotes = soup.find_all("div" ,class_ = "quote")
-
-print(quotes)
+except Exception as e:
+    print(e)
