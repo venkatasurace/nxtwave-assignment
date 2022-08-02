@@ -1,4 +1,3 @@
-
 import requests
  
 from bs4 import BeautifulSoup
@@ -31,13 +30,18 @@ for i in range(len(tags)):
     total_tags.append("," .join(k))
 
 
+    #response = requests.get(url)
+   
+    #soup = BeautifulSoup(response.content,"html.parser")
 
-dataset = pd.DataFrame()
 
-dataset["Quote"] = quotes
-dataset["author"] = authors
-dataset["Tags"] = total_tags
+# dataset = pd.DataFrame()
 
-print(dataset)
+# dataset["Quote"] = quotes
+# dataset["author"] = authors
+# dataset["Tags"] = total_tags
 
-dataset.to_csv("quotes.css")
+# print(dataset)
+
+# dataset.to_csv("quotes.css")
+
