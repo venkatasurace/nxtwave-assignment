@@ -1,6 +1,6 @@
 import mysql.connector
 
-mydb = mysql.connector.connect(host ='localhost',user='root',password = 'Suresh@8125', database = 'quotes')
+mydb = mysql.connector.connect(host ='localhost',user='root',password = 'Suresh@8125')
 
 mycursor = mydb.cursor()
 
@@ -12,5 +12,5 @@ mycursor = mydb.cursor()
 #     print(db)
 
 
-mycursor.execute("CREATE TABLE quote(Author_ID INTEGER NOT NULL PRIMARY KEY, Quotes TEXT, Author VARCHAR(255), Tags TEXT")
+mycursor.execute("CREATE TABLE quote(Quotes TEXT, Author VARCHAR(255), Tags TEXT")
 
