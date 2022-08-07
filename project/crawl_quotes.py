@@ -7,10 +7,10 @@ import pprint
 def data_crawl_quotes(tittles,authors,tags):
         list_a = []
         for quote,author,tag in zip(tittles,authors,tags):
-            quote_text = quote.getText()
+            quote_text = quote.getText().strip("“,”")
             author_text = author.getText()
             tags_text = tag.get("content")
-            list_a.append({ "quotes":quote_text,"author":author_text,"Tags":tags_text})
+            list_a.append({"Tags":tags_text,"author":author_text,"quotes":quote_text,})
         return list_a
 
 source_url = "http://quotes.toscrape.com/"
@@ -27,13 +27,9 @@ for i in range(1,11):
     tags = soup.select(".keywords")
 
     complete_data = data_crawl_quotes(tittles,authors,tags)
-    full_list.append(complete_data)
+    full_list.extend(complete_data)
     url = "http://quotes.toscrape.com/page/"+"str(i)"+"/"
 
 
-
-
 pprint.pprint(full_list)
-
-
 
